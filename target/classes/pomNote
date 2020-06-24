@@ -1,0 +1,150 @@
+https://www.youtube.com/watch?v=P9ZWOWm7i0k&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74
+##1. video diagrame
+ https://www.freecrm.com
+********************************************
+#https://www.youtube.com/watch?v=LxJzeiTQGoE&index=2&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74
+##2nd video--
+# 1.--created Maven Projects 2. Some a packages AND Classes
+# 3.Create properties file (don't write the test data here)
+
+## Design TestBase class --This is the parent class of all child class 
+#--1.create Constructor (TestBase) to read properties file
+#--2.Create --> initialization methods() to set chrome driver
+# pom.xml file is the heart of the projects
+
+#TestUtil -- all the helper methods can design
+# Page class --page factory @FindBy --page class extends the TestBase class
+# 1.first create Constructor to initialize 
+# PageFactory.initElements(driver.class)
+# 2.All helper methods  AND loginpage returns HomePage
+# 3.LoginPaGE AND TestLoginPage will extends Testbase calss
+
+#**************************2/11
+# https://www.youtube.com/watch?v=LxJzeiTQGoE&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74&index=2
+#LoginTestClass--extends TestBase 
+# Crate the PageFactory /OR of the login class AND initialize the OR by creating the CONSTRACTOR
+# --PageFactory.initElements(driver.this) --is the methods of initialization methods
+#***2.EveryPage have to --> create a Constructor and call the super() constructor inside it by super () keywords
+#3. create setUp methods() and call initialization metds from base
+#4. Create obj of login page class
+#5. call all test classes 
+#6. Put Assert.assertion
+#7.refreash the project and look at test-output folder for report --index-html
+# copy the path and paste the browser
+#** LoginPage --returns the HomePage
+
+******************************** 3/11
+#https://www.youtube.com/watch?v=ea0P7MBQmiM&index=3&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74
+**Click on the contactlink page will return the contact page like that
+**test cases should be seperated -- independent with each other
+**before each test case -- lunch the browser and login
+**@Test -- execute test case 
+**after each test case  -- close the browser
+#*******************************
+#V-3 https://www.youtube.com/watch?v=ea0P7MBQmiM&index=3&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74
+# Works with the HomePage
+# Create the testng.xml file to run all the test cases
+
+#*******************4/11
+# https://www.youtube.com/watch?v=H2-3w-GQZ3g&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74&index=4
+# Create the Contacts Page Class --DATA Driven test (dataprovider)
+# i. Create the testdata in a excel sheet for data driven (freecrmTestData.xlxs)-- in data package
+# ii. Create a class --TestUtil(I seperate as a datareader class) and create a methods(getTestData) that will read the excel sheet by row and column
+# iii. create a getdata method in the testClass and this methods will return the testdata.
+# iv. Now this data methods need to provide the testCase methods you wanna apply By dataprovider =getTestData
+#@CacheLookup --> will create a memory and look for there instead of looking into the browser/dompage 
+# WebElement username;
+# cacheLookup is avialable in selenium and its speed of the script will improve
+# if the page got refreshed --the cache memory will corrupt
+
+************
+##WebDriver Fire Event is selenium actions logs-->have to create a class --> EventListenerClass at util package
+# this will log all the steps
+# To see the complete figure go to util package ->WebEventListener class 
+# WebDriverEventListener -- is an interface
+# In Testbase class HAVE to create 
+# 1. --EventFirWebDrivere (driver) class obj pass the driver 2. --EventListener class objects
+## Throable -- means it will handle exceptions as well as errors
+# taking the screenshots when filed
+
+*************************************************
+#video-5 --Create ExtendReportListener class --implements IReprter
+https://www.youtube.com/watch?v=m4rjnOxqcjg&index=5&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74
+
+# 1. add the extendReport dependency/jar file to generate the report
+# 2. Have to Create ExtendReportListener class --> implements IReprter
+# 3. In testNG.xml file HAVE TO add Listener below suite tag
+#   <listeners>
+#		<listener class-name="com.qa.ExtentReportListener.ExtentReporterNG" />
+#	</listeners>
+# com.qa.ExtentReportListener-->package name 
+# ExtentReporterNG-->class name
+# refesh project and look the file name ExtendReport--> properties-->paste on browser
+#Extent.html -- file name
+# can change the color on right side top corner icon
+
+#*******************************************
+# V-6 Jenkins integrations
+# https://www.youtube.com/watch?v=lPxrPqSyCo8&index=6&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74
+#
+#
+#
+#
+#
+#
+**********************************************
+Video--7/ 37 add screenShot to extend report
+#Create a new maven projects ---extendReport dependency
+#setUp extend didrectory and environment
+# inn the last method-- write the pass-failed statement
+
+######**************************
+#video-8/ 38--log4j --dependency--log4j maven
+# https://www.youtube.com/watch?v=C7TEuhgVDYo&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74&index=8
+# How to Generate Log Files in Selenium using Log4j API
+# Created a new project -- GeneratedLogs
+# Project done by generateLogs
+# Properties file mandatory
+# 1. create a source folder --go to project --Rclick --New --Source Folder --name it src/main/resouces
+# 2. at resources folder --create a file named --log4j.properties 
+# 3. refresh the projects to see the generated logs --report
+#log4j.appender.file.Append=false/true
+# if Append=false --->this will create new logs clearing the  previous logs
+## if Append=true --->this will create new logs not clearing the  previous logs --means
+# if abc is their---->this will create abc ,but not clear the previous abc , so both logs will be stored
+
+#*the below line will give you the power to generate your own logs/ any kinds of methods to 
+	 * print . this come from the testng framework
+	 *  Write it in the class level
+	 */
+	Logger log = Logger.getLogger(LoginTest.class);
+	//log.info("launching chrome broswer"); --methods
+
+*****************************************************
+#V --9 GIT
+# https://www.youtube.com/watch?v=ywzEFZL75YM&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74&index=9
+#
+#
+#
+#
+# Git is a tool whereas Github(server) is the hosting service
+#******************************************************
+# V-10 GIT Basics - My First Repo In GIT || PUSH & PULL In GIT
+# https://www.youtube.com/watch?v=UF8prUYlA98&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74&index=10
+# 1.Create the repository --public/private
+# 2.
+#
+#
+#
+******************************************************
+#V --11 Retry Logic In TestNG || How to execute failed test cases in Selenium WebDriver
+# https://www.youtube.com/watch?v=xMMydM3oOjQ&index=11&list=PLFGoYjJG_fqq6cHeqfsDes3pdVh3kpl74
+# 1. public class MyTransformer implements IAnnotationTransformer
+# 2.public void transform(ITestAnnotation anotation, Class TestClass, Constructor TestConstructor,
+# 3.public class RetryAnalyzer implements IRetryAnalyzer{ //IRetryAnalyzer -- is interface
+#  public boolean retry(ITestResult result) { //don't chance the method name retyry()
+# 4. Create the test class with some test cases
+********************************************************
+
+
+
